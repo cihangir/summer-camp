@@ -166,6 +166,7 @@ echo substr("Hello world!", 6, 2);
 //trimming words
 $str = " Hello World! ";
 echo trim($str);
+//output "Hello World!"
 
 
 
@@ -269,10 +270,11 @@ echo $_requiredFields[0];
 //output "OrderObjectId"
 
 echo $_requiredFields[] = "SalesOrderId";
-//assign new value
+//assign/add new value
 
 echo count($_requiredFields);
 //output 4
+
 
 
 $_paymentStatus = array(
@@ -292,6 +294,7 @@ echo $_paymentStatus["inprogress"]["inarrayKey"];
 //output "inArrayValue"
 
 
+
 $a1 = array(0 => "Cat", 1 => "Dog", 2 => "Horse");
 $a2 = array(3 => "Horse", 4 => "Dog", 5 => "Fish");
 array_diff($a1, $a2);
@@ -303,11 +306,13 @@ array_key_exists("a", $a = array("a" => "Dog", "b" => "Cat"));
 //true
 
 
+
 $a1=array("a"=>"Horse","b"=>"Dog");
 $a2=array("c"=>"Cow","b"=>"Cat");
 array_merge($a1,$a2);
 //$a2 overrides $a1
 //Array ( [a] => Horse [b] => Cat [c] => Cow )
+
 
 
 $a = array("Dog", "Cat");
@@ -348,6 +353,7 @@ array_unique($a);
 //Array ( [a] => Cat [b] => Dog )
 
 
+
 $a=array("a"=>"Cat","b"=>"Dog","c"=>"Horse");
 array_values($a);
 //Array ( [0] => Cat [1] => Dog [2] => Horse )
@@ -357,6 +363,8 @@ array_values($a);
 $a=array("a"=>"Horse","b"=>"Cat","c"=>"Dog");
 array_keys($a);
 //Array ( [0] => a [1] => b [2] => c )
+
+
 
 $a=array(10,20,30,10);
 array_keys($a,10);
@@ -371,9 +379,6 @@ in_array("Glenn",$people);
 
 
 
-
-
-
 /**
  * Loops
  */
@@ -383,10 +388,14 @@ while ($cursor->hasNext()) {
     $LogsData[] = $cursor->getNext();
 }
 
+
+
 //do while loop
 do {
     $LogsData[] = $cursor->getNext();
 } while ($cursor->hasNext());
+
+
 
 //for loop
 for ($index = 0; $index < $count; $index++) {
@@ -395,6 +404,8 @@ for ($index = 0; $index < $count; $index++) {
         $repository->commit();
     }
 }
+
+
 
 //foreach loop
 foreach ($transactions as $transaction) {
@@ -406,6 +417,7 @@ foreach ($transactionData["data"] as $key => $value) {
         unset($transactionData["data"][$key]);
     }
 }
+
 
 
 /**
@@ -435,6 +447,7 @@ foreach ($transactionData["data"] as $key => $value) {
  */
 
 
+
 /**
  * DATE 
  */
@@ -447,7 +460,6 @@ echo date("d-m-Y",mktime(0,0,0,1,1,2001));
 //output 01-Jan-2001
 echo date("d-m-Y",mktime(0,0,0,12,36,2001));
 //output 05-Jan-2002
-
 
 
 
@@ -475,18 +487,27 @@ echo file_get_contents("test.txt");
 //outputs the file content as string
 
 
+
 echo file_put_contents("test.txt","Hello World. Testing!");
 //outputs false on error
+
+
 
 echo filectime("test.txt");
 //output 1341868253
 
+
+
 echo filesize('text');
 //output 11
+
+
 
 //returns true if test is a dir
 if(is_dir("test")){
 }
+
+
 
 //removes directory
 if (!rmdir('test')) {
@@ -494,11 +515,13 @@ if (!rmdir('test')) {
 }
 
 
+
 $_FILES["file"]["name"];     // the name of the uploaded file
 $_FILES["file"]["type"];     // the type of the uploaded file
 $_FILES["file"]["size"];     // the size in bytes of the uploaded file
 $_FILES["file"]["tmp_name"]; // the name of the temporary copy of the file stored on the server
 $_FILES["file"]["error"];    // the error code resulting from the file upload
+
 
 
 /**
@@ -568,9 +591,13 @@ echo round(0.49);
 
 
 
-
-
-
+/**
+ * Namespacing 
+ */
+namespace PHP\Lesson1;
+class Fundamentals {
+    
+}
 
 
 

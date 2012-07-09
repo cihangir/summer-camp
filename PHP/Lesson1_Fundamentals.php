@@ -483,10 +483,14 @@ scandir("images");
 //  [4] => logo.gif
 // )
 
+
+
 //returns true if file exists
 if(file_exists("test.txt")){
     //do dirty things with this file, huhuuu
 }
+
+
 
 echo file_get_contents("test.txt");
 //outputs the file content as string

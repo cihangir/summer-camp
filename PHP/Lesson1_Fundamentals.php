@@ -225,10 +225,13 @@ echo ucfirst("hello world");
 // x and y	
 // x or y	
 // x xor y	
-// x && y	
+// x && y
 // x || y
 // !x
 
+/**
+ * There is also bitwise oprators
+ */
 
 
 /**
@@ -242,6 +245,8 @@ if ($e->getCode() == '30') {
 } else {
     throw new \User_Exception_UserLoginFailedException();
 }
+
+$result = $e->getCode() == '30' ? 'false' : 'true';
 
 
 
@@ -598,6 +603,15 @@ namespace PHP\Lesson1;
 class Fundamentals {
     
 }
+
+
+
+// Variable assignment
+$name = 'foo'; 
+$$name = 'boo';
+echo $foo;
+//output boo
+//how come!?!
 
 
 

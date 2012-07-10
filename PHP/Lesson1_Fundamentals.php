@@ -558,8 +558,8 @@ $_SERVER;
 //@see Look to if conditions section for more exception examples
 try {
     $this->_logMikroOdemeTransactions($input, "request");
-} catch (\Exception $e) {
-    \Model_Core_Helper::logDebugMessage($e, "WebService", 1, "ReceiveOrderResult");
+} catch (Exception $e) {
+    Model_Core_Helper::logDebugMessage($e, "WebService", 1, "ReceiveOrderResult");
     throw new Exception('An unexpected error occured while trying to log Mikroodeme transaction, Ouchh');
 }
 //but there is not a <--finally--> reserved word :((

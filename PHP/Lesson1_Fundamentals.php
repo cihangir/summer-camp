@@ -543,6 +543,14 @@ $_SESSION[];
 
 session_destroy();
 
+//ALL GLOBALS
+$_GET;
+$_POST;
+$_REQUEST;
+$_COOKIE;
+$_SERVER;
+
+
 
 /**
  * EXCEPTIONS 

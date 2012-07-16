@@ -3,16 +3,14 @@
 /**
  * Definig a new class
  */
-class MessageQueueService
-{
+class MessageQueueService {
     
 }
 
 /**
  * Definig a new class and variables
  */
-class MessageQueueService
-{
+class MessageQueueService {
 
     /**
      * @var TartInterop_WorkQueue();
@@ -29,16 +27,14 @@ class MessageQueueService
 /**
  * Defining constructor
  */
-class MessageQueueService
-{
+class MessageQueueService {
 
     /**
      * @var string
      */
     protected $_queueName;
 
-    function __construct($config)
-    {
+    function __construct($config) {
         if (isset($config["mqConnection"])) {
             $this->_queueName = $config["queue"]["name"];
         } else {
@@ -51,16 +47,14 @@ class MessageQueueService
 /**
  * Defining constructor and methods
  */
-class MessageQueueService
-{
+class MessageQueueService {
 
     /**
      * @var string
      */
     protected $_queueName;
 
-    function __construct($config)
-    {
+    function __construct($config) {
         if (!isset($config["mqConnection"])) {
             throw new MessageQueueNotEnabledException();
         }
@@ -77,8 +71,7 @@ class MessageQueueService
      * @param array $filterParam 
      * @return string | bool
      */
-    public function notifyConsumingEvent($filterParam)
-    {
+    public function notifyConsumingEvent($filterParam) {
         if (isset($filterParam[0])) {
             return $filterParam[0];
         } else {
@@ -91,8 +84,7 @@ class MessageQueueService
      * 
      * @param int $ids 
      */
-    private function _notifyConsumingEvent($ids)
-    {
+    private function _notifyConsumingEvent($ids) {
         echo 'Hello World!';
     }
 
@@ -101,8 +93,7 @@ class MessageQueueService
      * 
      * @param int $ids 
      */
-    protected function notifyConsumingEvents($ids)
-    {
+    protected function notifyConsumingEvents($ids) {
         
     }
 
@@ -111,21 +102,18 @@ class MessageQueueService
 /**
  * Demonstrating encapsulation
  */
-class MessageQueueService
-{
+class MessageQueueService {
 
     /**
      * @var string
      */
     private $_queueName;
 
-    public function getQueueName()
-    {
+    public function getQueueName() {
         return $this->_queueName;
     }
 
-    public function setQueueName($queueName)
-    {
+    public function setQueueName($queueName) {
         $this->_queueName = $queueName;
     }
 
@@ -134,11 +122,9 @@ class MessageQueueService
 /**
  * Demonstrating reaching to a method in an object 
  */
-class MessageQueueModel
-{
+class MessageQueueModel {
 
-    function __construct()
-    {
+    function __construct() {
         $messageQueueService = new MessageQueueService();
         $messageQueueService->getQueueName();
     }
@@ -148,11 +134,9 @@ class MessageQueueModel
 /**
  * Demonstrating object matching
  */
-class MessageQueueModel
-{
+class MessageQueueModel {
 
-    function __construct()
-    {
+    function __construct() {
         echo (0 == "0");
         //output (true)
 
@@ -168,8 +152,7 @@ class MessageQueueModel
 /**
  * Demonstrating fake overloading
  */
-class MessageQueueModel
-{
+class MessageQueueModel {
 
     /**
      * @var TartInterop_WorkQueue();
@@ -181,8 +164,7 @@ class MessageQueueModel
      */
     protected $_queueName;
 
-    public function setVariables($_workQueue, $_queueName = NULL)
-    {
+    public function setVariables($_workQueue, $_queueName = NULL) {
         $this->_workQueue = $_workQueue;
         if (is_null($_queueName)) {
             $this->_queueName = 'This was null';
@@ -194,11 +176,9 @@ class MessageQueueModel
 /**
  * Demonstrating static function
  */
-class MessageQueueModel
-{
+class MessageQueueModel {
 
-    public static function setVariables($_name, $_surName)
-    {
+    public static function setVariables($_name, $_surName) {
         //
     }
 
@@ -206,28 +186,31 @@ class MessageQueueModel
 
 //MessageQueueModel::setVariables('name', 'surName');
 
-class MessageQueueModel
-{
+class MessageQueueModel {
 
-    public static function setVariables($_name, $_surName)
-    {
+    public static function setVariables($_name, $_surName) {
         //exception
         $this->setName($name);
     }
 
-    public function setName($name)
-    {
+    public function setName($name) {
         //
     }
 
 }
 
 //cannot override setVariables method
-class MessageQueueModel
-{
+class MessageQueueModel {
 
-    public final static function setVariables($_name, $_surName)
-    {
+    public final static function setVariables($_name, $_surName) {
+        
+    }
+
+}
+
+abstract class Metal {
+
+    public function combine() {
         
     }
 
@@ -236,75 +219,82 @@ class MessageQueueModel
 /**
  * Composition
  */
-class Head
-{
+class Head extends Metal {
 
-    public function activateIFF()
-    {
+    public function activateIFF() {
         //
     }
 
 }
 
-class Trunk
-{
+class Trunk extends Metal {
 
-    public function indicateFuelLevel()
-    {
+    public function indicateFuelLevel() {
         //
     }
 
 }
 
-class Voltran
-{
+class Voltran {
 
     public $head;
     public $trunk;
 
-    function __construct()
-    {
+    function __construct() {
         $this->head = new Head();
         $this->trunk = new Trunk();
     }
 
 }
 
-class BattleField
-{
+class BattleField {
 
     public $voltran;
 
-    function __construct()
-    {
+    function __construct() {
         $this->voltran = new Voltran();
         $this->voltran->head->activateIFF();
     }
 
 }
 
+/**
+ * Polimorfism
+ */
+class BattleField {
+
+    function __construct() {
+        $polimorfic = array();
+        $polimorfic[] = new Head();
+        $polimorfic[] = new Trunk();
+        foreach ($polimorfic as $polimor) {
+            $polimor->combine();
+        }
+    }
+
+}
 
 /**
  * Inheritance
  */
-class MessageQueue
-{
+class MessageQueue {
 
-    function __construct($name)
-    {
+    function __construct($name) {
         //
     }
 
-    public function acknowledge()
-    {
+    public function acknowledge() {
         //ack methods
     }
 
 }
 
+interface Traversable {
 
-class RabbitMQ extends MessageQueue
-{
+    public function travers();
+}
+
+class RabbitMQ extends MessageQueue implements Traversable {
 
     //exception
     //constructors must be compitable
@@ -316,9 +306,22 @@ class RabbitMQ extends MessageQueue
       }
      * 
      */
-    function __construct($name)
-    {
+    function __construct($name) {
+        //this parent also used in normal methods
         parent::__construct($name . '=surname');
     }
 
+    public function travers() {
+        foreach ($messages as $message) {
+            
+        }
+    }
+
 }
+
+//
+$seconds = $config['session']['remember_me_seconds'];
+return Zend_Session::rememberMe((int) $seconds);
+
+
+
